@@ -23,3 +23,14 @@ AI-powered global news summary app
 | 30 | Use clean and simple interface | As a user, I want a clean UI without ads or distractions. | 7 |
 | 40 | Save favorite news | As a user, I want to save news so I can read them later. | 6 |
 | 50 | Search for news | As a user, I want to search for specific news quickly. | 6 |
+
+## Practical 2 - User Interview & Requirements
+
+We interviewed 3 target users to gather requirements for NewsAI. 
+Key findings:
+- Users want to get daily news quickly without reading long articles.
+- They value AI-generated summaries to save time.
+- They want to filter news by topic and read full articles when needed.
+- They prefer a clean, ad-free interface.
+
+Below are the prioritized user stories with effort estimates:
