@@ -24,6 +24,8 @@ AI-powered global news summary app
 | 40 | Save favorite news | As a user, I want to save news so I can read them later. | 6 |
 | 50 | Search for news | As a user, I want to search for specific news quickly. | 6 |
 
+Initial estimates are intentionally conservative because requirements and implementation complexity may change during development.
+
 ## Practical 2 - User Interview & Requirements
 
 We interviewed 3 target users to gather requirements for NewsAI. 
