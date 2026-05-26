@@ -3,8 +3,7 @@ AI-powered global news summary app
 
 
 ## Team Members & Roles
-- Student 1: [PengPai] | Project Leader / Frontend Development
-- Student 2: [Hein] | Backend & Data Collection
+- Student 1: [PengPai] | Project Leader 
 
 
 ## Project Goal
