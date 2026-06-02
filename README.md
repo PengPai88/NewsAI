@@ -42,9 +42,13 @@ Below are the prioritized user stories with effort estimates:
 
 week3
 
-Todo 
-### Iteration 1 Selected User Stories
-| Priority | Title | Estimate(days) | Iteration Status |
+## 1.Iteration 1 Selected User Stories
+| Priority | Title | Estimate(days) | Iteration Progress |
 | ---- | ---- | ---- | ---- |
-| 10 | Get daily news quickly | 6 | ✅ Iter1 Todo |
-| 10 | View AI one-sentence news summary | 7 | ✅ Iter1 Todo |
+| 10 | Get daily news quickly | 6 | ✅ Completed(Done on GitHub Project Board, news_api.py committed) |
+| 10 | View AI one-sentence news summary | 7 | ⏳ Todo(Planned for next development cycle) |
+
+## 2.Task Completion Details
+1. Created GitHub Project Board named `NewsAI Iteration 1`, two core high-priority user stories were added into Todo column initially.
+2. We fully implemented the first user story: *Get daily news quickly*. Source file `news_api.py` was created and pushed to GitHub repository, relevant task card was moved from Todo to Done on project board.
+3. The second AI summary feature stays in Todo list and will be developed in follow-up work, we satisfied the requirement to finish at least one user story in this practical.
