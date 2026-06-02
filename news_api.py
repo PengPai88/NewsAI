@@ -1,18 +1,21 @@
-# NewsAI Iteration1 | Completed User Story: Get daily news quickly
-# Requirement: As a user, I want to get daily top news easily so I can stay informed without effort.
+# NewsAI Iteration1 | Get daily news quickly (Real NewsAPI data)
+import requests
+
+API_KEY = "efe03c4e2220470dbfd22810b904402b"
 
 def get_daily_top_news():
-    # Simulate fetched global daily headline data
-    daily_top_news = [
-        "Global central banks release new inflation policy reports",
-        "Leading tech firms launch latest artificial intelligence products",
-        "International football league completes weekend key matches",
-        "Global climate summit reaches new cooperation agreement"
-    ]
-    print("======== NewsAI | Daily Global Top News ========")
-    for num, news_content in enumerate(daily_top_news, start=1):
-        print(f"{num}. {news_content}")
+    # 请求全球头条新闻接口
+    url = f"https://newsapi.org/v2/top-headlines?country=us&pageSize=4&apiKey={API_KEY}"
+    res = requests.get(url)
+    data = res.json()
 
-# Program entrance
+    print("======== NewsAI | Daily Global Top News ========")
+    if data["status"] == "ok":
+        for idx, article in enumerate(data["articles"], start=1):
+            news_title = article["title"]
+            print(f"{idx}. {news_title}")
+    else:
+        print("Failed to fetch news, API quota exhausted temporarily")
+
 if __name__ == "__main__":
     get_daily_top_news()
