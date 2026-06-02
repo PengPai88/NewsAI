@@ -1,3 +1,5 @@
+week1
+
 # NewsAI
 AI-powered global news summary app
 
@@ -9,7 +11,7 @@ AI-powered global news summary app
 - Provide users with AI-generated one-sentence summaries of important global news headlines, helping them stay informed quickly and efficiently.
 
 
-
+week2
 
 
 
@@ -36,3 +38,13 @@ Key findings:
 - They prefer a clean, ad-free interface.
 
 Below are the prioritized user stories with effort estimates:
+
+
+week3
+
+Todo 
+### Iteration 1 Selected User Stories
+| Priority | Title | Estimate(days) | Iteration Status |
+| ---- | ---- | ---- | ---- |
+| 10 | Get daily news quickly | 6 | ✅ Iter1 Todo |
+| 10 | View AI one-sentence news summary | 7 | ✅ Iter1 Todo |
