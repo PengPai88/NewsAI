@@ -4,7 +4,7 @@ import requests
 API_KEY = "efe03c4e2220470dbfd22810b904402b"
 
 def get_daily_top_news():
-    # 请求全球头条新闻接口
+   
     url = f"https://newsapi.org/v2/top-headlines?country=us&pageSize=4&apiKey={API_KEY}"
     res = requests.get(url)
     data = res.json()
