@@ -69,7 +69,7 @@ def print_all_news_summaries(news_title_list):
         summary = generate_dynamic_summary(news)
         print(f"{idx}. AI Summary: {summary}")
 
-# Main Program Entry
+
 if __name__ == "__main__":
     fetched_news = get_daily_top_news()
     print_all_news_summaries(fetched_news)
