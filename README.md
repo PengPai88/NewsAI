@@ -42,20 +42,18 @@ Below are the prioritized user stories with effort estimates:
 
 week3
 
-
-
 # NewsAI Practical Week 3 Report
 ## Basic Iteration 1 Overview
 ### 1. Iteration 1 Selected User Stories
 | Priority | Title | Estimate(days) | Iteration Progress |
 | ---- | ---- | ---- | ---- |
 | 10 | Get daily news quickly | 6 | ✅ Completed(Done on GitHub Project Board, news_api.py committed) |
-| 10 | View AI one-sentence news summary | 7 | ✅ Completed(Done on GitHub Project Board, integrated summary logic in news_api.py) |
+| 10 | View AI one-sentence news summary | 7 | ✅ Completed(Done on GitHub Project Board, integrated dynamic text processing summary logic in news_api.py) |
 
 ### 2. Task Completion Details
 1. Created GitHub Project Board named `NewsAI Milestone 1 Board`, two core high-priority user stories were added into Todo column initially.
 2. We fully implemented the first user story: *Get daily news quickly*. Source file `news_api.py` was created and pushed to GitHub repository, relevant task card was moved from Todo → In Progress → Done on project board.
-3. Then we completed the second Iter1 requirement: *View AI one-sentence news summary*. The keyword matching summary logic was added into the same source file, its task card was also shifted from Todo to In Progress and finally marked Done.
+3. Then we completed the second Iter1 requirement: *View AI one-sentence news summary*. Dynamic text compression and cleaning logic was added into the same source file to auto-generate concise summaries for any news title, its task card was also shifted from Todo to In Progress and finally marked Done.
 4. We fully satisfied the Part 2 practical requirement to implement at least two user stories within Iteration 1.
 
 ---
@@ -79,19 +77,18 @@ Use clean and simple interface (7d), Save favorite news (6d), Search news (6d)
 - Initial state at the start of Iteration 1: Both Iter1 user story cards were placed in the Todo column.
 - Development workflow tracking:
   1. "Get daily news quickly" was moved to In Progress during coding. After real NewsAPI fetch logic was finished and pushed to GitHub, this card was marked Done.
-  2. "View AI one-sentence news summary" was moved to In Progress afterwards. We built keyword-matching logic to generate unique single-sentence summaries for real news headlines, then committed the full code and marked this card Done as well.
+  2. "View AI one-sentence news summary" was moved to In Progress afterwards. We built automatic text processing logic to strip media source suffixes and compress long titles into unique single-sentence summaries for all real-time news headlines, then committed the full code and marked this card Done as well.
 - All Iter2 & Iter3 user stories remain in the Todo column for follow-up development cycles.
 
 ## 3. Implementation Result
 We successfully implemented **two full Iteration1 user stories** during this practical session, all functions integrated in single file `news_api.py`:
-1. Story 1 connects to NewsAPI to fetch real-time US global news headlines online, with fallback mock text to handle API quota exhaustion.
-2. Story 2 generates readable custom AI one-sentence summaries by matching keywords from each fetched news title.
+1. Story 1 connects to NewsAPI to fetch real-time US global news headlines online, with empty prompt feedback to handle API quota exhaustion or network failure.
+2. Story 2 generates readable custom one-sentence summaries through universal dynamic text processing logic. The program automatically cleans redundant media labels and truncates long text, without relying on hard-coded fixed keyword templates.
 
 The complete source code has been committed and pushed to the project’s GitHub repository, running without runtime exceptions.
 
 ## 4. Iteration 1 Burn Down Graph Analysis
-
-<img width="413" height="244" alt="image" src="https://github.com/user-attachments/assets/0d0a34b6-0d58-4813-9946-81102323de54" />
+<img width="410" height="247" alt="image" src="https://github.com/user-attachments/assets/00f8a780-d719-476a-aca8-a3b4618cf4b2" />
 
 
 ### Chart Definition
@@ -104,10 +101,9 @@ The complete source code has been committed and pushed to the project’s GitHub
 Total initial estimated workload for Iter1: 13 working days
 - Day0: Remaining work =13 days, both user stories unstarted
 - Day1: Remaining work =7 days, finished 6 days workload of the news fetch feature
-- Day2: Remaining work =0 days, finished the remaining 7 days workload of AI summary function
+- Day2: Remaining work =0 days, finished the remaining 7 days workload of dynamic text summary function
 - Day3: Zero residual tasks, Iteration 1 fully delivered one day ahead of the planned schedule
 
 ### Conclusion
 The blue actual progress line lies entirely below the orange ideal trend line across all days. This demonstrates our development speed was faster than the planned pace, and all Iteration 1 deliverables were completed ahead of schedule with no overdue work.
-
 
