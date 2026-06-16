@@ -172,37 +172,8 @@ All Iteration 1 subtasks are fully completed with zero pending work at the end o
 - Main program instantiates `NewsApplication` and calls `run_full_workflow()` to trigger the complete program flow.
 
 > Upload your drawn class diagram screenshot below this line:
+<img width="1197" height="1314" alt="image" src="https://github.com/user-attachments/assets/c11399d1-cbc7-4cc5-a706-ac5fc3d52e19" />
 
-┌─────────────────────────────────────┐
-│           NewsAPIClient            │
-├─────────────────────────────────────┤
-│ + news_api_key: str                │
-│ + base_url: str                    │
-│ + country_code: str                │
-│ + page_size: int                   │
-├─────────────────────────────────────┤
-│ + fetch_top_headlines(): list[str] │
-└─────────────────────────────────────┘
-                ↓ Composition
-┌─────────────────────────────────────┐
-│      TextSummaryProcessor          │
-├─────────────────────────────────────┤
-│ + max_summary_length: int          │
-├─────────────────────────────────────┤
-│ + generate_dynamic_summary(text):str│
-└─────────────────────────────────────┘
-                ↓ Composition
-┌─────────────────────────────────────┐
-│         NewsApplication            │
-├─────────────────────────────────────┤
-│ - news_client: NewsAPIClient       │
-│ - summary_processor: TextSummaryProcessor │
-│ - news_title_list: list[str]       │
-├─────────────────────────────────────┤
-│ + run_full_workflow(): void        │
-│ + print_all_news(): void           │
-│ + print_all_summaries(): void      │
-└─────────────────────────────────────┘
 
 
 ## 4. Sequence Diagram (Core End-to-End Feature Flow)
@@ -219,30 +190,9 @@ This sequence diagram demonstrates the full execution flow of the two key user s
 10. Program execution ends
 
 > Upload your drawn sequence diagram screenshot below this line:
+>
+> <img width="1693" height="929" alt="image" src="https://github.com/user-attachments/assets/6b43275b-b6c2-4a4b-a5ae-1baf2f05152f" />
 
-
-Actor(MainProgram)      NewsApplication        NewsAPIClient        TextSummaryProcessor     NewsAPIServer
-       |                       |                     |                     |                  |
-       | run_full_workflow()   |                     |                     |                  |
-       |---------------------->|                     |                     |                  |
-       |                       | fetch_top_headlines()|                     |                  |
-       |                       |--------------------->|                     |                  |
-       |                       |                     | HTTP GET request     |                  |
-       |                       |                     |------------------->|                  |
-       |                       |                     |                     |                  |
-       |                       |                     |     JSON data       |                  |
-       |                       |                     |<-------------------|                  |
-       |                       |                     | return title list   |                  |
-       |                       |<--------------------|                     |                  |
-       |                       | LOOP per news title |                     |                  |
-       |                       |------------------------------------------->|                  |
-       |                       |                     | generate_dynamic_summary(text) |
-       |                       |                     |<--------------------------------|
-       |                       | receive summary text|                     |                  |
-       |                       | print news & summary|                     |                  |
-       |                       | END LOOP            |                     |                  |
-       |<----------------------| workflow complete   |                     |                  |
-       |                       |                     |                     |                  |
 
 ## 5. GitHub Advanced Task Tracking & Collaborative Operation
 ### 5.1 Create & Assign GitHub Issues to Track Tasks
