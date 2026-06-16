@@ -172,7 +172,38 @@ All Iteration 1 subtasks are fully completed with zero pending work at the end o
 - Main program instantiates `NewsApplication` and calls `run_full_workflow()` to trigger the complete program flow.
 
 > Upload your drawn class diagram screenshot below this line:
-> ![NewsAI Class Diagram](Paste your image raw link here)
+
+┌─────────────────────────────────────┐
+│           NewsAPIClient            │
+├─────────────────────────────────────┤
+│ + news_api_key: str                │
+│ + base_url: str                    │
+│ + country_code: str                │
+│ + page_size: int                   │
+├─────────────────────────────────────┤
+│ + fetch_top_headlines(): list[str] │
+└─────────────────────────────────────┘
+        ↑ 
+┌─────────────────────────────────────┐
+│      TextSummaryProcessor          │
+├─────────────────────────────────────┤
+│ + max_summary_length: int          │
+├─────────────────────────────────────┤
+│ + generate_dynamic_summary(text):str│
+└─────────────────────────────────────┘
+        ↑ 
+┌─────────────────────────────────────┐
+│         NewsApplication            │
+├─────────────────────────────────────┤
+│ - news_client: NewsAPIClient       │
+│ - summary_processor: TextSummaryProcessor │
+│ - news_title_list: list[str]       │
+├─────────────────────────────────────┤
+│ + run_full_workflow(): void        │
+│ + print_all_news(): void           │
+│ + print_all_summaries(): void      │
+└─────────────────────────────────────┘
+
 
 ## 4. Sequence Diagram (Core End-to-End Feature Flow)
 This sequence diagram demonstrates the full execution flow of the two key user stories: fetch online news → generate dynamic one-sentence summaries.
@@ -188,7 +219,29 @@ This sequence diagram demonstrates the full execution flow of the two key user s
 10. Program execution ends
 
 > Upload your drawn sequence diagram screenshot below this line:
-> ![NewsAI Core Function Sequence Diagram](Paste your image raw link here)
+
+
+Actor          NewsApplication        NewsAPIClient        TextSummaryProcessor     NewsAPI Server
+  |                   |                     |                     |                  |
+  | run_full_workflow()|                     |                     |                  |
+  |------------------> |                     |                     |                  |
+  |                   | fetch_top_headlines()|                     |                  |
+  |                   |--------------------->|                     |                  |
+  |                   |                     | HTTP GET request     |                  |
+  |                   |                     |------------------->|                  |
+  |                   |                     |                     |                  | JSON news data
+  |                   |                     | <-------------------|                  |
+  |                   |                     | return news_title_list|                  |
+  |                   | <--------------------|                     |                  |
+  |                   | loop every news title|                     |                  |
+  |                   |------------------------------------------->|                  |
+  |                   |                     | generate_dynamic_summary(news_text) |
+  |                   |                     | <----------------------------------|
+  |                   | receive summary text |                     |                  |
+  |                   | print news & summary to console            |                  |
+  |                   | end loop            |                     |                  |
+  | <------------------| return finish status|                     |                  |
+  |                   |                     |                     |                  |
 
 ## 5. GitHub Advanced Task Tracking & Collaborative Operation
 ### 5.1 Create & Assign GitHub Issues to Track Tasks
