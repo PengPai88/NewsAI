@@ -42,49 +42,72 @@ Below are the prioritized user stories with effort estimates:
 
 week3
 
-## 1.Iteration 1 Selected User Stories
+
+
+# NewsAI Practical Week 3 Report
+## Basic Iteration 1 Overview
+### 1. Iteration 1 Selected User Stories
 | Priority | Title | Estimate(days) | Iteration Progress |
 | ---- | ---- | ---- | ---- |
 | 10 | Get daily news quickly | 6 | ✅ Completed(Done on GitHub Project Board, news_api.py committed) |
-| 10 | View AI one-sentence news summary | 7 | ⏳ Todo(Planned for next development cycle) |
+| 10 | View AI one-sentence news summary | 7 | ✅ Completed(Done on GitHub Project Board, integrated summary logic in news_api.py) |
 
-## 2.Task Completion Details
-1. Created GitHub Project Board named `NewsAI Iteration 1`, two core high-priority user stories were added into Todo column initially.
-2. We fully implemented the first user story: *Get daily news quickly*. Source file `news_api.py` was created and pushed to GitHub repository, relevant task card was moved from Todo to Done on project board.
-3. The second AI summary feature stays in Todo list and will be developed in follow-up work, we satisfied the requirement to finish at least one user story in this practical.
+### 2. Task Completion Details
+1. Created GitHub Project Board named `NewsAI Milestone 1 Board`, two core high-priority user stories were added into Todo column initially.
+2. We fully implemented the first user story: *Get daily news quickly*. Source file `news_api.py` was created and pushed to GitHub repository, relevant task card was moved from Todo → In Progress → Done on project board.
+3. Then we completed the second Iter1 requirement: *View AI one-sentence news summary*. The keyword matching summary logic was added into the same source file, its task card was also shifted from Todo to In Progress and finally marked Done.
+4. We fully satisfied the Part 2 practical requirement to implement at least two user stories within Iteration 1.
 
-
-
+---
 
 # Practical Week3 Part2: Iteration 1 Milestone 1 Report
 ## 1. Milestone 1 User Story Iteration Allocation
 We split all 8 prioritised user stories into 3 iterations based on priority and effort estimates:
+
 ### Iteration 1 (Core Priority 10 Tasks, Total Effort =13 days)
 1. Get daily news quickly | Priority10 | 6 days
 2. View AI one-sentence news summary | Priority10 |7 days
+
 ### Iteration 2 (Priority20 Secondary Features, Total=18 days)
 Filter news by category (6d), Read full news article (6d), Refresh latest news (6d)
+
 ### Iteration3 (Low priority polish & extra functions, Total=19 days)
-Clean UI (7d), Save favorite news (6d), Search news (6d)
+Use clean and simple interface (7d), Save favorite news (6d), Search news (6d)
 
 ## 2. GitHub Project Board Task Monitoring
-- A dedicated project board named *NewsAI Milestone 1 Board* was created with Todo / In Progress / Done labels.
-- Initial state: Both Iter1 user stories placed in Todo column.
-- Development workflow:
-  1. "Get daily news quickly" moved to In Progress during coding, then marked Done after code commit.
-  2. "View AI one-sentence news summary" moved to In Progress next, fully implemented and marked Done.
-- Iter2 & Iter3 tasks remain in Todo for later development cycles.
+- A dedicated Kanban project board named *NewsAI Milestone 1 Board* was created with three workflow labels: Todo / In Progress / Done.
+- Initial state at the start of Iteration 1: Both Iter1 user story cards were placed in the Todo column.
+- Development workflow tracking:
+  1. "Get daily news quickly" was moved to In Progress during coding. After real NewsAPI fetch logic was finished and pushed to GitHub, this card was marked Done.
+  2. "View AI one-sentence news summary" was moved to In Progress afterwards. We built keyword-matching logic to generate unique single-sentence summaries for real news headlines, then committed the full code and marked this card Done as well.
+- All Iter2 & Iter3 user stories remain in the Todo column for follow-up development cycles.
 
-##3. Implementation Result
-We successfully implemented **two Iteration1 user stories** within practical class:
-1. Story 1 fetches real global headline data via NewsAPI (fallback mock data for API quota limits).
-2. Story 2 generates custom AI one-sentence summaries matched to each news headline.
-Source file `news_api.py` committed and pushed to GitHub repository.
+## 3. Implementation Result
+We successfully implemented **two full Iteration1 user stories** during this practical session, all functions integrated in single file `news_api.py`:
+1. Story 1 connects to NewsAPI to fetch real-time US global news headlines online, with fallback mock text to handle API quota exhaustion.
+2. Story 2 generates readable custom AI one-sentence summaries by matching keywords from each fetched news title.
 
-##4. Iteration 1 Burn Down Graph Details
-Total initial estimated work for Iter1: 13 days
-- Day0: Remaining work =13 days (no tasks finished)
-- Day1: Remaining work =7 days (6 days of work completed for news fetch feature)
-- Day2: Remaining work =0 days (7 days of AI summary work fully completed)
-- Day3: No residual tasks, iteration fully delivered ahead of schedule.
-The actual progress line drops faster than the ideal planned burn-down line, showing efficient task delivery.
+The complete source code has been committed and pushed to the project’s GitHub repository, running without runtime exceptions.
+
+## 4. Iteration 1 Burn Down Graph Analysis
+
+<img width="413" height="244" alt="image" src="https://github.com/user-attachments/assets/0d0a34b6-0d58-4813-9946-81102323de54" />
+
+
+### Chart Definition
+- X-axis: Iteration Development Day (0, 1, 2, 3)
+- Y-axis: Remaining Estimated Work (Days)
+- Orange line: Ideal Remaining Work (uniform linear decline from 13 days to 0 over 3 days)
+- Blue line: Actual Remaining Work (real development progress)
+
+### Progress Data Breakdown
+Total initial estimated workload for Iter1: 13 working days
+- Day0: Remaining work =13 days, both user stories unstarted
+- Day1: Remaining work =7 days, finished 6 days workload of the news fetch feature
+- Day2: Remaining work =0 days, finished the remaining 7 days workload of AI summary function
+- Day3: Zero residual tasks, Iteration 1 fully delivered one day ahead of the planned schedule
+
+### Conclusion
+The blue actual progress line lies entirely below the orange ideal trend line across all days. This demonstrates our development speed was faster than the planned pace, and all Iteration 1 deliverables were completed ahead of schedule with no overdue work.
+
+
