@@ -183,7 +183,7 @@ All Iteration 1 subtasks are fully completed with zero pending work at the end o
 ├─────────────────────────────────────┤
 │ + fetch_top_headlines(): list[str] │
 └─────────────────────────────────────┘
-        ↑ 
+                ↓ Composition
 ┌─────────────────────────────────────┐
 │      TextSummaryProcessor          │
 ├─────────────────────────────────────┤
@@ -191,7 +191,7 @@ All Iteration 1 subtasks are fully completed with zero pending work at the end o
 ├─────────────────────────────────────┤
 │ + generate_dynamic_summary(text):str│
 └─────────────────────────────────────┘
-        ↑ 
+                ↓ Composition
 ┌─────────────────────────────────────┐
 │         NewsApplication            │
 ├─────────────────────────────────────┤
@@ -221,27 +221,28 @@ This sequence diagram demonstrates the full execution flow of the two key user s
 > Upload your drawn sequence diagram screenshot below this line:
 
 
-Actor          NewsApplication        NewsAPIClient        TextSummaryProcessor     NewsAPI Server
-  |                   |                     |                     |                  |
-  | run_full_workflow()|                     |                     |                  |
-  |------------------> |                     |                     |                  |
-  |                   | fetch_top_headlines()|                     |                  |
-  |                   |--------------------->|                     |                  |
-  |                   |                     | HTTP GET request     |                  |
-  |                   |                     |------------------->|                  |
-  |                   |                     |                     |                  | JSON news data
-  |                   |                     | <-------------------|                  |
-  |                   |                     | return news_title_list|                  |
-  |                   | <--------------------|                     |                  |
-  |                   | loop every news title|                     |                  |
-  |                   |------------------------------------------->|                  |
-  |                   |                     | generate_dynamic_summary(news_text) |
-  |                   |                     | <----------------------------------|
-  |                   | receive summary text |                     |                  |
-  |                   | print news & summary to console            |                  |
-  |                   | end loop            |                     |                  |
-  | <------------------| return finish status|                     |                  |
-  |                   |                     |                     |                  |
+Actor(MainProgram)      NewsApplication        NewsAPIClient        TextSummaryProcessor     NewsAPIServer
+       |                       |                     |                     |                  |
+       | run_full_workflow()   |                     |                     |                  |
+       |---------------------->|                     |                     |                  |
+       |                       | fetch_top_headlines()|                     |                  |
+       |                       |--------------------->|                     |                  |
+       |                       |                     | HTTP GET request     |                  |
+       |                       |                     |------------------->|                  |
+       |                       |                     |                     |                  |
+       |                       |                     |     JSON data       |                  |
+       |                       |                     |<-------------------|                  |
+       |                       |                     | return title list   |                  |
+       |                       |<--------------------|                     |                  |
+       |                       | LOOP per news title |                     |                  |
+       |                       |------------------------------------------->|                  |
+       |                       |                     | generate_dynamic_summary(text) |
+       |                       |                     |<--------------------------------|
+       |                       | receive summary text|                     |                  |
+       |                       | print news & summary|                     |                  |
+       |                       | END LOOP            |                     |                  |
+       |<----------------------| workflow complete   |                     |                  |
+       |                       |                     |                     |                  |
 
 ## 5. GitHub Advanced Task Tracking & Collaborative Operation
 ### 5.1 Create & Assign GitHub Issues to Track Tasks
