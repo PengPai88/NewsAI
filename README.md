@@ -232,3 +232,101 @@ Sample complete commit history:
 All tasks and objectives required in Practical 4 are fully completed.
 
 
+
+
+
+week6:
+
+
+# News Practical 6 Report: Reflect Iteration 1 & Plan Iteration 2
+## Objective
+Review the delivery status and performance of Iteration 1, calculate team iteration velocity, inspect code design principles, and adjust backlog & development plans for Iteration 2.
+
+## 1. Iteration 1 Actual Velocity Calculation (B&C Students Task)
+### Basic Data
+Total estimated workload of Iteration 1: 6 + 7 = 13 working days
+Actual development cycle to finish all work: 2 days
+### Velocity Formula
+Actual Velocity = Total completed story points ÷ Actual iteration days
+Actual Velocity = 13 ÷ 2 = 6.5 points per day
+### Velocity Explanation
+The team’s average delivery capacity is 6.5 work points each day. This metric is used to evaluate how many user stories can be reasonably completed within Iteration 2’s timebox.
+
+## 2. Code Inspection: SRP & DRY Principle Check (B&C Students Task)
+### Core Three System Classes
+1. NewsAPIClient
+2. TextSummaryProcessor
+3. NewsApplication
+
+### SRP (Single Responsibility Principle) Inspection Result
+1. NewsAPIClient: Only responsible for NewsAPI network request, parameter configuration and network exception capture. No text processing or console output logic. Complies with SRP.
+2. TextSummaryProcessor: Only handles news text cleaning and one-sentence summary generation, independent of network and printing logic. Complies with SRP.
+3. NewsApplication: Only instantiate tool classes, organise program workflow and print output. Separated network and text functions. Complies with SRP.
+All classes follow single responsibility without mixed unrelated functions.
+
+### DRY (Don’t Repeat Yourself) Inspection Result
+1. All reusable logic is encapsulated into independent functions; no duplicated copy-paste code segments.
+2. Fixed parameters (API key, website URL, text length limit) are defined as global constants at the top of the file, avoiding repeated hardcoding.
+3. Unified loop logic for traversing news list, no repeated printing loops.
+4. Network error handling logic is concentrated in the fetch function without duplicate exception code.
+Conclusion: The code fully follows the DRY principle without redundant repeated code.
+
+### Minor Improvement Suggestion
+Can extract a separate ConsolePrinter class to decouple all print logic from NewsApplication for stricter single responsibility.
+
+## 3. Iteration 1 Burn Down Graph
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/625a44fd-bcbc-4411-a96e-010d530ef905" />
+
+
+### Chart Recap
+Total initial work:13 days, actual work finished on Day 2, ahead of the planned 3-day schedule. Actual progress line is below the ideal trend line, indicating high development efficiency.
+
+## 4. Update Product Backlog Based on Iteration 1 Velocity
+### Iteration 2 Timebox Assumption: 3 development days
+Max team capacity = Velocity × Iteration days = 6.5 × 3 = 19.5 work points
+### Iteration 2 Candidate User Stories
+1. Filter news by category (6 days)
+2. Read full news article (6 days)
+3. Refresh latest news (6 days)
+Total estimated Iteration2 workload = 18 days
+### Backlog Adjustment Result
+18 < 19.5, all three secondary priority user stories can be fully scheduled into Iteration 2.
+Low-priority Iteration 3 tasks (Clean UI, Save favorite news, Search news) are postponed to subsequent iterations.
+
+### Final Iteration 2 Backlog Table
+| Priority | User Story Title | Estimated Days | Scheduled Iteration |
+| ---- | ---- | ---- | ---- |
+| 20 | Filter news by category | 6 | Iteration 2 |
+| 20 | Read full news article | 6 | Iteration 2 |
+| 20 | Refresh latest news | 6 | Iteration 2 |
+
+## 5. Iteration 2 Task Monitoring (Todo / In Progress / Done Labels)
+We continue using the GitHub Kanban board `NewsAI Milestone 1 Board`:
+1. Create new task cards for all 3 Iteration 2 user stories, place all cards into Todo column at the start of Iteration 2.
+2. Split each user story into smaller subtask cards for fine-grained tracking.
+3. Move cards to In Progress when starting coding; shift to Done after full coding, local test and GitHub commit.
+4. Track all task status changes and record progress comments on corresponding GitHub Issues.
+
+## 6. Document Completed & Unfinished User Stories
+### Completed User Stories (Iteration 1 Fully Delivered)
+1. Get daily news quickly (Priority 10, 6 days)
+2. View AI one-sentence news summary (Priority 10, 7 days)
+
+### Unfinished Stories Moved to Iteration 2
+1. Filter news by category
+2. Read full news article
+3. Refresh latest news
+
+### Unfinished Stories Postponed to Iteration 3
+1. Use clean and simple interface
+2. Save favorite news
+3. Search news
+
+## 7. GitHub Pages Update Operation Standard
+After each Iteration 2 user story is marked Done:
+1. Create or update corresponding Github Pages markdown document for the finished feature.
+2. Record feature requirements, implementation logic, core source code snippets and program running screenshots.
+3. Attach links of related GitHub Issue, project board task card and commit history.
+4. Add test result description to record functional verification outcome.
+
+
