@@ -275,7 +275,8 @@ Conclusion: The code fully follows the DRY principle without redundant repeated 
 Can extract a separate ConsolePrinter class to decouple all print logic from NewsApplication for stricter single responsibility.
 
 ## 3. Iteration 1 Burn Down Graph
-<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/625a44fd-bcbc-4411-a96e-010d530ef905" />
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/f9033f41-002e-4f4e-a517-90f8976e9488" />
+
 
 
 ### Chart Recap
