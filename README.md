@@ -1,4 +1,4 @@
-week1
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/2e2ab6ef-cfde-4d8b-8093-8c81d31b2314" />week1
 
 # NewsAI
 AI-powered global news summary app
@@ -275,7 +275,7 @@ Conclusion: The code fully follows the DRY principle without redundant repeated 
 Can extract a separate ConsolePrinter class to decouple all print logic from NewsApplication for stricter single responsibility.
 
 ## 3. Iteration 1 Burn Down Graph
-<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/f9033f41-002e-4f4e-a517-90f8976e9488" />
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/ce68690c-6972-4253-a795-ce3d312c6ca3" />
 
 
 
