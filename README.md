@@ -1,4 +1,4 @@
-<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/2e2ab6ef-cfde-4d8b-8093-8c81d31b2314" />week1
+week1
 
 # NewsAI
 AI-powered global news summary app
