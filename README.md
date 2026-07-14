@@ -330,4 +330,184 @@ After each Iteration 2 user story is marked Done:
 3. Attach links of related GitHub Issue, project board task card and commit history.
 4. Add test result description to record functional verification outcome.
 
+# NewsAI Practical 7 Report: Test-Driven Development (TDD)
 
+## Objective
+Apply Test-Driven Development (TDD) concepts by planning project testing, designing test cases for core user stories, and implementing automated unit tests to verify system correctness.
+
+---
+
+## 1. Testing Strategy & Test Plan
+
+### Testing Objectives
+
+The NewsAI project adopts automated testing to verify that each core function behaves correctly and continues to work after future code modifications.
+
+The testing objectives are:
+
+- Verify news retrieval from NewsAPI.
+- Verify AI-generated one-sentence summaries.
+- Verify category filtering functionality.
+- Verify opening full news articles.
+- Verify refreshing the latest news.
+- Verify exception handling and invalid input processing.
+
+The project follows the Test-Driven Development (TDD) approach. Test cases are designed before or alongside implementation to ensure every user story satisfies its expected behaviour.
+
+### Types of Testing
+
+| Test Type | Purpose |
+| ---------- | ------- |
+| Unit Testing | Verify each function independently |
+| Functional Testing | Verify complete user story behaviour |
+| Boundary Testing | Verify minimum, maximum and empty inputs |
+| Exception Testing | Verify graceful handling of errors and invalid data |
+| Regression Testing | Ensure new changes do not break existing functionality |
+
+---
+
+## 2. User Story Test Case Design
+
+### User Story 1 — Get Daily News Quickly
+
+| Test ID | Test Scenario | Expected Result |
+| -------- | ------------- | --------------- |
+| TC-01 | Retrieve news using a valid API key | Latest news headlines are successfully returned |
+| TC-02 | Retrieve news using an invalid API key | API error message is displayed |
+| TC-03 | Retrieve news without an Internet connection | Connection error is handled without crashing |
+
+---
+
+### User Story 2 — View AI One-Sentence News Summary
+
+| Test ID | Test Scenario | Expected Result |
+| -------- | ------------- | --------------- |
+| TC-04 | Generate summary from a long news title | A concise summary is generated within the maximum length |
+| TC-05 | Generate summary from an empty string | An empty summary is returned |
+| TC-06 | Generate summary from a short title | Original title is preserved without unnecessary truncation |
+
+---
+
+### User Story 3 — Filter News by Category
+
+| Test ID | Test Scenario | Expected Result |
+| -------- | ------------- | --------------- |
+| TC-07 | Filter Technology news | Only Technology news is displayed |
+| TC-08 | Filter Sports news | Only Sports news is displayed |
+| TC-09 | Filter using an invalid category | Empty result or warning message is returned |
+
+---
+
+### User Story 4 — Read Full News Article
+
+| Test ID | Test Scenario | Expected Result |
+| -------- | ------------- | --------------- |
+| TC-10 | Open a valid article URL | Browser opens the selected news article |
+| TC-11 | Open an invalid URL | Appropriate error handling occurs |
+| TC-12 | Open an empty URL | No action is performed |
+
+---
+
+### User Story 5 — Refresh Latest News
+
+| Test ID | Test Scenario | Expected Result |
+| -------- | ------------- | --------------- |
+| TC-13 | Refresh news once | Latest news headlines are downloaded |
+| TC-14 | Refresh during an API timeout | Timeout is handled gracefully |
+| TC-15 | Refresh multiple times | Latest available news is displayed successfully |
+
+---
+
+## 3. Automated Unit Tests
+
+### Implemented Test Functions
+
+The following automated unit tests were implemented for the NewsAI project.
+
+| Test Function | Purpose |
+| ------------- | ------- |
+| test_fetch_news_success() | Verify successful API request |
+| test_fetch_news_invalid_key() | Verify invalid API key handling |
+| test_fetch_news_connection_error() | Verify network exception handling |
+| test_generate_summary_long_text() | Verify long text summarisation |
+| test_generate_summary_short_text() | Verify short title processing |
+| test_generate_summary_empty() | Verify empty input handling |
+| test_filter_category_technology() | Verify Technology category filtering |
+| test_filter_category_sports() | Verify Sports category filtering |
+| test_filter_invalid_category() | Verify invalid category handling |
+| test_open_article_valid_url() | Verify opening a valid article URL |
+| test_open_article_invalid_url() | Verify invalid URL handling |
+| test_open_article_empty_url() | Verify empty URL behaviour |
+| test_refresh_news() | Verify refresh functionality |
+| test_refresh_timeout() | Verify timeout handling |
+| test_multiple_refresh_requests() | Verify repeated refresh operations |
+
+### Test Statistics
+
+- Total Automated Tests: **15**
+- Testing Framework: **Python unittest**
+- Test Execution: **Automatic**
+
+---
+
+## 4. Test Execution Result
+
+### Overall Test Results
+
+| Test Category | Result |
+| ------------- | ------ |
+| Total Tests | 15 |
+| Passed | 15 |
+| Failed | 0 |
+| Success Rate | 100% |
+
+### Test Summary
+
+All automated unit tests passed successfully.
+
+The implemented tests verify the correctness of the core functionality, including API communication, summary generation, category filtering, article opening, refresh operations and exception handling.
+
+The successful execution of all tests indicates that the current implementation satisfies the selected user stories and behaves correctly under both normal and exceptional conditions.
+
+---
+
+## 5. Test Coverage Summary
+
+### Covered Components
+
+The automated tests cover the following major components of the NewsAI system:
+
+- NewsAPIClient
+- TextSummaryProcessor
+- NewsApplication
+- News category filtering
+- News refresh functionality
+- URL validation
+- Exception handling
+
+### Coverage Analysis
+
+The implemented tests cover all major business logic introduced during Iteration 1 and the planned Iteration 2 functionality. Core user stories, normal execution paths, boundary conditions and common exception scenarios are included in the automated testing process.
+
+---
+
+## 6. TDD Reflection
+
+### Reflection
+
+Applying Test-Driven Development (TDD) encouraged the project to consider software quality throughout development instead of only after implementation.
+
+Designing test cases before or alongside coding made the program structure easier to verify and maintain. Automated testing also provides confidence that future enhancements can be introduced without breaking existing functionality.
+
+As the project continues into future iterations, the automated test suite can be expanded to support additional user stories while serving as an effective regression testing framework.
+
+---
+
+## 7. Practical 7 Completion Summary
+
+1. Planned and documented the overall testing strategy for the NewsAI project.
+2. Designed comprehensive test cases for five selected user stories.
+3. Created three test cases for each user story, producing a total of fifteen test cases.
+4. Implemented fifteen automated unit tests using the Python unittest framework.
+5. Successfully executed all automated tests with a 100% pass rate.
+6. Applied Test-Driven Development principles to improve software quality, reliability and maintainability.
