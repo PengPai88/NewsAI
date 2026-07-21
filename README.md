@@ -511,3 +511,226 @@ As the project continues into future iterations, the automated test suite can be
 4. Implemented fifteen automated unit tests using the Python unittest framework.
 5. Successfully executed all automated tests with a 100% pass rate.
 6. Applied Test-Driven Development principles to improve software quality, reliability and maintainability.
+
+
+
+# NewsAI Practical 8 Report: Iteration 3 Planning & Test-Driven Development
+
+## Objective
+
+Reflect on Iteration 2, evaluate the team's development performance, calculate the actual velocity of Iteration 2, update the product backlog for Iteration 3, monitor task progress using Agile workflow, and investigate the use of Mock Object Framework in automated testing.
+
+---
+
+## 1. Iteration 2 Reflection
+
+### Completed User Stories
+
+During Iteration 2, the team completed the three planned secondary-priority user stories.
+
+| Priority | User Story | Estimate (Story Points) | Status |
+| ---------- | ---------- | ----------------------- | ------ |
+| 20 | Filter news by category | 6 | ✅ Completed |
+| 20 | Read full news article | 6 | ✅ Completed |
+| 20 | Refresh latest news | 6 | ✅ Completed |
+
+### Iteration 2 Summary
+
+The planned workload for Iteration 2 was completed successfully. All scheduled user stories were implemented according to the iteration plan and tracked through the GitHub Project Board using the Todo, In Progress and Done workflow.
+
+---
+
+## 2. Iteration 2 Actual Velocity Calculation
+
+### Basic Data
+
+Total estimated workload of Iteration 2:
+
+6 + 6 + 6 = **18 Story Points**
+
+Actual development cycle:
+
+**3 Days**
+
+### Velocity Formula
+
+Actual Velocity = Total Completed Story Points ÷ Actual Iteration Days
+
+Actual Velocity = **18 ÷ 3 = 6 Story Points per Day**
+
+### Velocity Explanation
+
+The team's average delivery capacity during Iteration 2 was **6 Story Points per day**.
+
+Compared with Iteration 1 (6.5 Story Points/day), the delivery speed remained stable while implementing more functional features.
+
+---
+
+## 3. Iteration 2 Burn Down Graph
+
+> Upload your updated Iteration 2 Burn Down Chart below this line.
+
+<img width="1536" height="1024" alt="Iteration2 BurnDown" src="YOUR_BURNDOWN_IMAGE_HERE" />
+
+### Chart Recap
+
+Iteration 2 started with **18 Story Points**.
+
+The actual remaining work decreased steadily throughout the iteration and reached zero by the end of Day 3.
+
+The actual burndown line closely followed the planned trend, indicating that the team maintained a stable development pace and completed all scheduled work within the iteration timebox.
+
+---
+
+## 4. Update Product Backlog Based on Iteration 2 Velocity
+
+### Iteration 3 Timebox Assumption
+
+Iteration Length:
+
+**3 Development Days**
+
+Team Capacity:
+
+6 × 3 = **18 Story Points**
+
+### Remaining Product Backlog
+
+| Priority | User Story | Estimate | Scheduled Iteration |
+| ---------- | ---------- | -------- | ------------------- |
+| 30 | Use clean and simple interface | 7 | Iteration 3 |
+| 40 | Save favourite news | 6 | Iteration 3 |
+| 50 | Search for news | 6 | Iteration 4 |
+
+### Backlog Adjustment Result
+
+The remaining workload totals **19 Story Points**, while the estimated capacity of Iteration 3 is **18 Story Points**.
+
+Therefore, the highest-priority remaining user stories are scheduled into Iteration 3, while the **Search for news** feature is postponed to Iteration 4.
+
+This backlog adjustment follows Agile planning principles by using actual team velocity instead of initial estimation.
+
+---
+
+## 5. Iteration 3 Task Monitoring (Todo / In Progress / Done Labels)
+
+The project continues to use the GitHub Kanban board **NewsAI Milestone 1 Board**.
+
+### Task Workflow
+
+1. Create GitHub Issues for each Iteration 3 user story.
+2. Place all new tasks into the **Todo** column.
+3. Move tasks to **In Progress** when development begins.
+4. Move tasks to **Done** after implementation, testing and GitHub commit.
+5. Record development progress and testing evidence inside each GitHub Issue.
+
+This workflow provides a clear visual overview of project progress throughout the iteration.
+
+---
+
+## 6. GitHub Pages Update
+
+After each completed Iteration 3 user story:
+
+1. Update the corresponding GitHub Pages documentation.
+2. Record the implemented functionality.
+3. Include key source code snippets.
+4. Add screenshots demonstrating successful execution.
+5. Link the related GitHub Issue.
+6. Link the corresponding Git commit history.
+7. Record testing results for the completed feature.
+
+---
+
+## 7. Using UI Design as Test Specification
+
+### Test-Driven Development Planning
+
+The NewsAI user interface prototype and user stories are used together as testing specifications during Test-Driven Development.
+
+Each UI interaction corresponds to one or more user stories, allowing expected system behaviour to be verified before implementation.
+
+Examples include:
+
+| UI Action | Related User Story | Expected Behaviour |
+| ---------- | ------------------ | ------------------ |
+| User clicks Refresh | Refresh latest news | Latest headlines are downloaded and displayed |
+| User selects Technology category | Filter news by category | Only Technology news is shown |
+| User clicks Read More | Read full news article | Browser opens the selected article |
+| User opens application | Get daily news quickly | Latest headlines are loaded automatically |
+| User views summary | View AI one-sentence summary | AI-generated summary is displayed below each headline |
+
+Using UI behaviour as testing specifications helps ensure that the implemented functionality satisfies user expectations throughout development.
+
+---
+
+## 8. Research on Mock Object Framework
+
+### What is a Mock Object?
+
+A Mock Object is a simulated object used during software testing to replace external dependencies such as web services, databases or third-party APIs.
+
+Mock objects allow developers to verify program behaviour without relying on real external systems.
+
+### Benefits of Mock Objects
+
+- Faster automated testing
+- No Internet connection required
+- No NewsAPI quota consumption
+- Repeatable and consistent testing results
+- Isolated verification of business logic
+
+### Mock Object Implementation in NewsAI
+
+The NewsAI project uses the **unittest.mock** library to replace real NewsAPI requests during automated testing.
+
+Example:
+
+```python
+from unittest.mock import patch, Mock
+
+@patch("news_api.requests.get")
+def test_fetch_news_success(mock_get):
+    mock_response = Mock()
+
+    mock_response.json.return_value = {
+        "status": "ok",
+        "articles": [
+            {"title": "News A"},
+            {"title": "News B"}
+        ]
+    }
+
+    mock_get.return_value = mock_response
+
+    news = get_daily_top_news()
+
+    assert len(news) == 2
+```
+
+Instead of sending a real HTTP request to NewsAPI, the mocked response simulates the returned JSON data, allowing the test to verify program behaviour without network access.
+
+---
+
+## 9. Practical 8 Completion Summary
+
+1. Reflected on the completed work of Iteration 2.
+2. Calculated the actual Iteration 2 velocity.
+3. Updated the Iteration 2 burn down chart.
+4. Re-planned the product backlog for Iteration 3 based on actual velocity.
+5. Continued monitoring development tasks using the GitHub Project Board.
+6. Updated GitHub Pages documentation for completed user stories.
+7. Applied UI designs together with user stories as testing specifications for Test-Driven Development.
+8. Investigated the Mock Object Framework and implemented mock objects for automated testing using Python's unittest.mock library.
+
+
+
+
+
+
+
+
+
+
+
+
