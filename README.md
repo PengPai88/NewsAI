@@ -569,8 +569,7 @@ Compared with Iteration 1 (6.5 Story Points/day), the delivery speed remained st
 ## 3. Iteration 2 Burn Down Graph
 
 > Upload your updated Iteration 2 Burn Down Chart below this line.
-
-<img width="1536" height="1024" alt="Iteration2 BurnDown" src="YOUR_BURNDOWN_IMAGE_HERE" />
+![Uploading image.png…]()
 
 ### Chart Recap
 
