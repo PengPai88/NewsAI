@@ -569,8 +569,9 @@ Compared with Iteration 1 (6.5 Story Points/day), the delivery speed remained st
 ## 3. Iteration 2 Burn Down Graph
 
 > Upload your updated Iteration 2 Burn Down Chart below this line.
-[![Uploading image.png…]()](https://chatgpt.com/backend-api/estuary/content?id=file_00000000c79482079ef6680a8133fc00&ts=495722&p=fs&cid=1&sig=58dd501f6ed9cb42c8f3920b93050a786de4c007b288cca8fd8451c331a403f0&v=0)
+><img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/49bfd64d-997e-4847-92ac-08babe7da1a6" />
 
+> 
 ### Chart Recap
 
 Iteration 2 started with **18 Story Points**.
