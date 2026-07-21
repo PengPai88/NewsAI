@@ -569,9 +569,8 @@ Compared with Iteration 1 (6.5 Story Points/day), the delivery speed remained st
 ## 3. Iteration 2 Burn Down Graph
 
 > Upload your updated Iteration 2 Burn Down Chart below this line.
-><img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/49bfd64d-997e-4847-92ac-08babe7da1a6" />
+> <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/1a8329b2-9c93-471d-80ca-f4c37653d9ce" />
 
-> 
 ### Chart Recap
 
 Iteration 2 started with **18 Story Points**.
@@ -682,7 +681,9 @@ Mock objects allow developers to verify program behaviour without relying on rea
 
 ### Mock Object Implementation in NewsAI
 
-The NewsAI project uses the **unittest.mock** library to replace real NewsAPI requests during automated testing.
+The NewsAI project uses Python's **unittest.mock** library to simulate external NewsAPI responses during automated testing.
+
+Instead of sending real HTTP requests, the `requests.get()` method is replaced with a mock object that returns predefined test data. This allows the program logic to be tested without requiring an Internet connection or consuming NewsAPI request quotas.
 
 Example:
 
@@ -690,9 +691,9 @@ Example:
 from unittest.mock import patch, Mock
 
 @patch("news_api.requests.get")
-def test_fetch_news_success(mock_get):
-    mock_response = Mock()
+def test_fetch_news_success(self, mock_get):
 
+    mock_response = Mock()
     mock_response.json.return_value = {
         "status": "ok",
         "articles": [
@@ -705,12 +706,19 @@ def test_fetch_news_success(mock_get):
 
     news = get_daily_top_news()
 
-    assert len(news) == 2
+    self.assertEqual(len(news), 2)
+    self.assertEqual(news[0], "News A")
 ```
 
-Instead of sending a real HTTP request to NewsAPI, the mocked response simulates the returned JSON data, allowing the test to verify program behaviour without network access.
+In this test, the `requests.get()` function is replaced by a mock object. Rather than contacting the real NewsAPI server, the mock returns a predefined JSON response containing two sample news articles. The automated test then verifies that the `get_daily_top_news()` function correctly processes the returned data.
 
----
+Using mock objects provides several advantages:
+
+- Faster test execution
+- No Internet connection required
+- No NewsAPI quota consumption
+- Consistent and repeatable test results
+- Isolation of business logic from external services
 
 ## 9. Practical 8 Completion Summary
 
