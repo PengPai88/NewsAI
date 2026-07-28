@@ -734,7 +734,141 @@ Using mock objects provides several advantages:
 
 
 
+WEEK9
 
+# System Testing Plan
+
+## Objective
+
+The objective of system testing is to verify that NewsAI satisfies all functional requirements before the final demonstration.
+
+---
+
+## Test Environment
+
+- Operating System: Windows 11
+- Programming Language: Python 3.12
+- IDE: PyCharm
+- Internet Connection: Required for NewsAPI
+- Testing Framework: pytest
+- Mock Framework: unittest.mock
+
+---
+
+## Test Scope
+
+The following user stories will be tested:
+
+- Get daily news quickly
+- View AI one-sentence news summary
+- Filter news by category
+- Read full article
+- Refresh latest news
+
+---
+
+## Test Cases
+
+### Test 1
+
+Feature:
+Get daily news quickly
+
+Expected Result:
+
+- NewsAPI connects successfully.
+- News headlines are displayed.
+
+Pass Criteria:
+
+News list displayed correctly.
+
+---
+
+### Test 2
+
+Feature:
+View AI Summary
+
+Expected Result:
+
+- Summary generated automatically.
+- Long titles truncated correctly.
+
+Pass Criteria:
+
+Summary displayed correctly.
+
+---
+
+### Test 3
+
+Feature:
+Filter by Category
+
+Expected Result:
+
+Only selected category news is shown.
+
+Pass Criteria:
+
+Correct category displayed.
+
+---
+
+### Test 4
+
+Feature:
+Refresh News
+
+Expected Result:
+
+Latest news retrieved.
+
+Pass Criteria:
+
+Updated headlines displayed.
+
+---
+
+### Test 5
+
+Feature:
+Network Failure
+
+Expected Result:
+
+Program does not crash.
+
+Pass Criteria:
+
+"No news available" displayed.
+
+---
+
+### Test 6
+
+Feature:
+Empty News List
+
+Expected Result:
+
+Program handles empty response correctly.
+
+Pass Criteria:
+
+No exception thrown.
+
+---
+
+## Acceptance Criteria
+
+The system will be accepted if:
+
+- All automated tests pass.
+- All critical bugs are resolved.
+- User stories satisfy expected behaviour.
+- Demo scenarios execute successfully.
 
 
 
