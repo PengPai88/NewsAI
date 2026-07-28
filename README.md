@@ -735,12 +735,123 @@ Using mock objects provides several advantages:
 
 
 WEEK9
-
-# System Testing Plan
+# NewsAI Practical 9 Report: Bug Tracking & System Testing
 
 ## Objective
 
-The objective of system testing is to verify that NewsAI satisfies all functional requirements before the final demonstration.
+Review the bug and error tracking process during Iteration 3, improve issue management using GitHub tools, prepare a complete system testing plan for the Week 10 demonstration, and provide repository access for the instructor.
+
+---
+
+# 1. Bug & Error Tracking
+
+During system testing, GitHub Issues were used to record, monitor and resolve bugs discovered throughout the development process.
+
+Three representative bugs were identified and documented.
+
+| Issue ID | Bug Description | Status |
+| -------- | ---------------- | ------ |
+| #1 | Empty news list not displayed correctly | ✅ Closed |
+| #2 | Long news title exceeds summary length | ✅ Closed |
+| #3 | Network timeout handling | ✅ Closed |
+
+Each issue contains:
+
+- User Story
+- Bug description
+- Expected behaviour
+- Resolution
+- Closing comment
+
+This provides a complete history of each software defect.
+
+---
+
+# 2. GitHub Project Workflow
+
+The project uses GitHub Projects as a Kanban board to monitor software development and bug fixing.
+
+Workflow:
+
+```
+Todo
+   ↓
+In Progress
+   ↓
+Done
+```
+
+All issues are added into the GitHub Project Board and moved through the workflow as development progresses.
+
+Project tracking allows every bug and user story to be monitored visually throughout the iteration.
+
+> Insert GitHub Project Board screenshot below.
+
+<img width="..." alt="GitHub Project Board" src="YOUR_PROJECT_BOARD_SCREENSHOT"/>
+
+---
+
+# 3. GitHub Issues
+
+GitHub Issues are used to record software defects found during testing.
+
+### Issue #1
+
+**Bug:** Empty news list not displayed correctly
+
+**Expected Behaviour**
+
+When NewsAPI returns an empty result, the system should display:
+
+```
+No news available
+```
+
+instead of crashing.
+
+Status:
+
+✅ Closed
+
+---
+
+### Issue #2
+
+**Bug:** Long news title exceeds summary length
+
+**Expected Behaviour**
+
+Very long news titles should automatically be truncated to the predefined maximum summary length while preserving readability.
+
+Status:
+
+✅ Closed
+
+---
+
+### Issue #3
+
+**Bug:** Network timeout handling
+
+**Expected Behaviour**
+
+If the NewsAPI request times out or the Internet connection fails, the application should return an empty list and continue running without crashing.
+
+Status:
+
+✅ Closed
+
+> Insert GitHub Issues screenshot below.
+
+<img width="..." alt="GitHub Issues" src="YOUR_ISSUES_SCREENSHOT"/>
+
+---
+
+# 4. System Testing Plan
+
+## Objective
+
+The objective of system testing is to verify that the NewsAI application satisfies all functional requirements before the Week 10 demonstration.
 
 ---
 
@@ -750,7 +861,7 @@ The objective of system testing is to verify that NewsAI satisfies all functiona
 - Programming Language: Python 3.12
 - IDE: PyCharm
 - Internet Connection: Required for NewsAPI
-- Testing Framework: pytest
+- Testing Framework: unittest
 - Mock Framework: unittest.mock
 
 ---
@@ -762,38 +873,40 @@ The following user stories will be tested:
 - Get daily news quickly
 - View AI one-sentence news summary
 - Filter news by category
-- Read full article
+- Read full news article
 - Refresh latest news
 
 ---
 
-## Test Cases
+## System Test Cases
 
-### Test 1
+### Test Case 1
 
 Feature:
+
 Get daily news quickly
 
 Expected Result:
 
-- NewsAPI connects successfully.
-- News headlines are displayed.
+- Successfully connects to NewsAPI
+- Latest headlines are displayed
 
 Pass Criteria:
 
-News list displayed correctly.
+News headlines appear correctly.
 
 ---
 
-### Test 2
+### Test Case 2
 
 Feature:
+
 View AI Summary
 
 Expected Result:
 
-- Summary generated automatically.
-- Long titles truncated correctly.
+- AI summary generated successfully
+- Long titles truncated correctly
 
 Pass Criteria:
 
@@ -801,63 +914,83 @@ Summary displayed correctly.
 
 ---
 
-### Test 3
+### Test Case 3
 
 Feature:
+
 Filter by Category
 
 Expected Result:
 
-Only selected category news is shown.
+Only news from the selected category is displayed.
 
 Pass Criteria:
 
-Correct category displayed.
+Correct category news appears.
 
 ---
 
-### Test 4
+### Test Case 4
 
 Feature:
-Refresh News
+
+Read Full Article
 
 Expected Result:
 
-Latest news retrieved.
+Selecting a news article opens the original webpage successfully.
 
 Pass Criteria:
 
-Updated headlines displayed.
+Browser opens the selected URL.
 
 ---
 
-### Test 5
+### Test Case 5
 
 Feature:
+
+Refresh Latest News
+
+Expected Result:
+
+Newest headlines are downloaded after refresh.
+
+Pass Criteria:
+
+Updated news list displayed.
+
+---
+
+### Test Case 6
+
+Feature:
+
 Network Failure
 
 Expected Result:
 
-Program does not crash.
+Application handles connection failure without crashing.
 
 Pass Criteria:
 
-"No news available" displayed.
+"No news available" message displayed.
 
 ---
 
-### Test 6
+### Test Case 7
 
 Feature:
+
 Empty News List
 
 Expected Result:
 
-Program handles empty response correctly.
+Program handles empty API responses correctly.
 
 Pass Criteria:
 
-No exception thrown.
+No exception is thrown.
 
 ---
 
@@ -865,14 +998,39 @@ No exception thrown.
 
 The system will be accepted if:
 
-- All automated tests pass.
+- All automated tests pass successfully.
 - All critical bugs are resolved.
-- User stories satisfy expected behaviour.
-- Demo scenarios execute successfully.
+- All selected user stories satisfy their expected behaviour.
+- The application completes the demonstration scenarios successfully.
 
+---
 
+# 5. Repository Collaboration
 
+To support project assessment, the instructor was invited as a collaborator to the GitHub repository.
 
+Collaborator:
 
+- Dasheng LIU (dasheng.liu@jcu.edu.au)
 
+Invitation Status:
 
+Pending Invite
+
+> Insert Collaborator screenshot below.
+
+<img width="..." alt="GitHub Collaborator" src="YOUR_COLLABORATOR_SCREENSHOT"/>
+
+---
+
+# 6. Practical 9 Completion Summary
+
+During Practical 9, the NewsAI project improved its bug tracking and testing process by integrating GitHub Issues and GitHub Projects into the Agile development workflow.
+
+Three representative software defects were identified, documented and resolved using GitHub Issues. Each issue was tracked visually through the Todo → In Progress → Done workflow using the GitHub Project Board.
+
+A complete system testing plan was prepared for the Week 10 demonstration, covering the testing environment, functional scope, system test cases and acceptance criteria.
+
+Finally, the instructor was invited as a collaborator to the GitHub repository to review the project progress and development artefacts.
+
+Overall, Practical 9 successfully completed all required objectives related to bug tracking, project management, system testing preparation and repository collaboration.
