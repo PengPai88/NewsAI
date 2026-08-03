@@ -813,6 +813,9 @@ Status:
 
 ✅ Closed
 
+<img width="756" height="585" alt="image" src="https://github.com/user-attachments/assets/10db4fac-6511-45b6-bcb6-82d674953aab" />
+
+
 ---
 
 ### Issue #2
@@ -826,6 +829,9 @@ Very long news titles should automatically be truncated to the predefined maximu
 Status:
 
 ✅ Closed
+
+
+<img width="764" height="582" alt="image" src="https://github.com/user-attachments/assets/05d7c09f-ab59-421a-83c2-c32c6e14d983" />
 
 ---
 
@@ -843,7 +849,8 @@ Status:
 
 > Insert GitHub Issues screenshot below.
 
-<img width="..." alt="GitHub Issues" src="YOUR_ISSUES_SCREENSHOT"/>
+<img width="791" height="581" alt="image" src="https://github.com/user-attachments/assets/2b10b2ff-a22e-4071-83c1-465da08f06d4" />
+
 
 ---
 
