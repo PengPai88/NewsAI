@@ -1,75 +1,146 @@
-# NewsAI Iteration1 | Two completed online & local-process user stories
-# Story1: Get daily news quickly (Fully online NewsAPI to fetch real news headlines)
-# Story2: View AI one-sentence news summary (Dynamic text processing logic, auto generate summary without fixed keyword template)
 import requests
+from typing import List, Dict
 
-# Global Constant Config
+# ==========================
+# Global Configuration
+# ==========================
+
 NEWS_API_KEY = "efe03c4e2220470dbfd22810b904402b"
 NEWS_API_BASE_URL = "https://newsapi.org/v2/top-headlines"
 NEWS_COUNTRY = "us"
 NEWS_PAGE_SIZE = 4
+MAX_SUMMARY_LENGTH = 80
 
-# -------------------------- User Story 1: Online News Fetch --------------------------
-def get_daily_top_news():
+
+# ==========================
+# News API Client
+# ==========================
+
+class NewsAPIClient:
     """
-    User Story 1: Connect NewsAPI to fetch real-time US news online
-    Return list of original news title strings
+    Responsible for retrieving news from NewsAPI.
     """
-    request_params = {
-        "country": NEWS_COUNTRY,
-        "pageSize": NEWS_PAGE_SIZE,
-        "apiKey": NEWS_API_KEY
-    }
-    news_title_list = []
-    print("======== NewsAI | Daily Global Top News ========")
-    try:
-        response = requests.get(NEWS_API_BASE_URL, params=request_params, timeout=12)
-        response_data = response.json()
-    except requests.exceptions.RequestException:
-        print("Network error: Cannot connect to NewsAPI")
-        return []
 
-    if response_data.get("status") == "ok":
-        for index, article in enumerate(response_data["articles"], start=1):
-            news_title = article["title"]
-            news_title_list.append(news_title)
-            print(f"{index}. {news_title}")
-    else:
-        print("NewsAPI quota exhausted, no news data returned")
-    return news_title_list
+    def fetch_top_headlines(self) -> List[Dict]:
 
-# -------------------------- User Story 2: Dynamic Auto Summary (No fixed keyword hardcode) --------------------------
-def generate_dynamic_summary(news_text: str):
+        params = {
+            "country": NEWS_COUNTRY,
+            "pageSize": NEWS_PAGE_SIZE,
+            "apiKey": NEWS_API_KEY
+        }
+
+        try:
+            response = requests.get(
+                NEWS_API_BASE_URL,
+                params=params,
+                timeout=12
+            )
+
+            response.raise_for_status()
+
+            data = response.json()
+
+            if data.get("status") != "ok":
+                return []
+
+            return data.get("articles", [])
+
+        except requests.exceptions.RequestException:
+            return []
+
+
+# ==========================
+# Summary Processor
+# ==========================
+
+class TextSummaryProcessor:
     """
-    User Story 2 Core Logic: Dynamic text truncation & sentence compression algorithm
-    Auto generate short overview for any news title, no pre-written fixed summary template
-    Pure program logic generation, not manual preset text
+    Responsible for generating AI-style summaries.
     """
-    # Step1 Remove website suffix like "- Yahoo Sports / - CNN"
-    if " - " in news_text:
-        pure_title = news_text.split(" - ")[0]
-    else:
-        pure_title = news_text
 
-    # Step2 Truncate to fixed readable length for one-sentence summary
-    max_length = 80
-    if len(pure_title) <= max_length:
-        summary = pure_title
-    else:
-        summary = pure_title[:max_length] + "..."
-    return f"Brief summary: {summary}"
+    @staticmethod
+    def generate_summary(news_title: str) -> str:
 
-def print_all_news_summaries(news_title_list):
-    """Loop all fetched news and auto generate summary for each entry"""
-    print("\n======== Auto Generated One-Sentence News Summary ========")
-    if not news_title_list:
-        print("No news available to generate summary")
-        return
-    for idx, news in enumerate(news_title_list, start=1):
-        summary = generate_dynamic_summary(news)
-        print(f"{idx}. AI Summary: {summary}")
+        if not news_title:
+            return "Brief summary: "
 
+        # Remove source name
+        pure_title = news_title.split(" - ")[0]
+
+        # Limit summary length
+        if len(pure_title) > MAX_SUMMARY_LENGTH:
+            pure_title = pure_title[:MAX_SUMMARY_LENGTH] + "..."
+
+        return f"Brief summary: {pure_title}"
+
+
+# ==========================
+# Console Printer
+# ==========================
+
+class ConsolePrinter:
+    """
+    Responsible only for displaying information.
+    """
+
+    @staticmethod
+    def print_news(articles: List[Dict]):
+
+        print("======== NewsAI | Daily Global Top News ========")
+
+        if not articles:
+            print("No news available")
+            return
+
+        for index, article in enumerate(articles, start=1):
+            print(f"{index}. {article['title']}")
+
+    @staticmethod
+    def print_summaries(articles: List[Dict]):
+
+        print("\n======== Auto Generated One-Sentence News Summary ========")
+
+        if not articles:
+            print("No news available to generate summary")
+            return
+
+        for index, article in enumerate(articles, start=1):
+
+            summary = TextSummaryProcessor.generate_summary(
+                article["title"]
+            )
+
+            print(f"{index}. {summary}")
+
+
+# ==========================
+# Main Application
+# ==========================
+
+class NewsApplication:
+    """
+    Main workflow controller.
+    """
+
+    def __init__(self):
+
+        self.news_client = NewsAPIClient()
+
+    def run(self):
+
+        articles = self.news_client.fetch_top_headlines()
+
+        ConsolePrinter.print_news(articles)
+
+        ConsolePrinter.print_summaries(articles)
+
+
+# ==========================
+# Program Entry
+# ==========================
 
 if __name__ == "__main__":
-    fetched_news = get_daily_top_news()
-    print_all_news_summaries(fetched_news)
+
+    app = NewsApplication()
+
+    app.run()
