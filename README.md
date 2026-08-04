@@ -1042,3 +1042,98 @@ A complete system testing plan was prepared for the Week 10 demonstration, cover
 Finally, the instructor was invited as a collaborator to the GitHub repository to review the project progress and development artefacts.
 
 Overall, Practical 9 successfully completed all required objectives related to bug tracking, project management, system testing preparation and repository collaboration.
+
+
+
+week10
+
+
+# NewsAI Practical 10 Report: Final Iteration & Project Review
+
+## Objective
+
+Complete the final iteration by demonstrating the NewsAI project, reviewing the assessment rubric, and ensuring all project requirements have been satisfied before final submission.
+
+---
+
+# 1. Project Demonstration
+
+The NewsAI project was demonstrated during the practical class.
+
+The demonstration included the following features:
+
+- Fetch daily news from NewsAPI
+- Generate AI one-sentence summaries
+- Display news headlines
+- Handle empty news responses
+- Handle network exceptions
+- Demonstrate automated testing
+- Demonstrate GitHub Project workflow
+- Demonstrate GitHub Issues
+- Demonstrate object-oriented program structure
+
+All core functions operated successfully during the demonstration.
+
+---
+
+# 2. Assessment Rubric Review
+
+The assessment rubric was reviewed to ensure that every required component had been completed.
+
+| Requirement | Status |
+| ------------ | ------ |
+| Product Backlog | ✅ Completed |
+| User Stories | ✅ Completed |
+| GitHub Repository | ✅ Completed |
+| GitHub Project Board | ✅ Completed |
+| GitHub Issues | ✅ Completed |
+| Iteration Planning | ✅ Completed |
+| Burn Down Charts | ✅ Completed |
+| Class Diagram | ✅ Completed |
+| Sequence Diagram | ✅ Completed |
+| Automated Testing | ✅ Completed |
+| Mock Object Testing | ✅ Completed |
+| System Testing Plan | ✅ Completed |
+| GitHub Pages Documentation | ✅ Completed |
+| Instructor Repository Access | ✅ Completed |
+
+---
+
+# 3. Final Project Summary
+
+Throughout the development process, the NewsAI project followed Agile software development practices.
+
+Three iterations were completed during the semester.
+
+The project successfully implemented:
+
+- Real-time news retrieval using NewsAPI
+- AI-generated one-sentence summaries
+- Object-oriented program design
+- Automated unit testing
+- Mock object testing
+- Bug tracking using GitHub Issues
+- Task management using GitHub Projects
+- Continuous documentation using GitHub Pages
+
+The project met all practical requirements and demonstrated the complete Agile development lifecycle from requirement analysis to testing and project delivery.
+
+---
+
+# 4. Reflection
+
+The project provided practical experience in Agile software engineering, including sprint planning, iterative development, software testing, bug tracking and continuous improvement.
+
+Using GitHub Projects, Issues, automated testing and Mock Objects improved project quality and made development more organised.
+
+The project also reinforced the importance of maintaining software documentation throughout the development lifecycle.
+
+---
+
+# 5. Practical 10 Completion Summary
+
+During Practical 10, the NewsAI project was successfully demonstrated and reviewed against the assessment rubric.
+
+All required deliverables, documentation, testing artefacts and GitHub project management components were completed.
+
+The project is ready for final assessment and submission.
