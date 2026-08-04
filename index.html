@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>NewsAI Project Documentation</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.1/github-markdown.min.css">
+
+<style>
+
+body{
+    background:#f6f8fa;
+    margin:0;
+    padding:40px;
+}
+
+.markdown-body{
+    max-width:980px;
+    margin:auto;
+    background:white;
+    padding:45px;
+    border-radius:10px;
+    box-shadow:0 0 12px rgba(0,0,0,.08);
+}
+
+.markdown-body img{
+    max-width:100%;
+    height:auto;
+}
+
+.markdown-body table{
+    display:block;
+    overflow-x:auto;
+}
+
+pre{
+    overflow:auto;
+}
+
+.loading{
+    text-align:center;
+    color:gray;
+    font-size:18px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<article id="content" class="markdown-body">
+
+<div class="loading">
+Loading README...
+</div>
+
+</article>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<script>
+
+fetch("README.md")
+.then(response=>response.text())
+.then(text=>{
+
+document.getElementById("content").innerHTML=marked.parse(text);
+
+})
+.catch(error=>{
+
+document.getElementById("content").innerHTML=
+
+"<h2>Unable to load README.md</h2>";
+
+});
+
+</script>
+
+</body>
+
+</html>
