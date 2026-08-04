@@ -1,4 +1,5 @@
 import requests
+import textwrap
 from typing import List, Dict
 
 # ==========================
@@ -30,6 +31,7 @@ class NewsAPIClient:
         }
 
         try:
+
             response = requests.get(
                 NEWS_API_BASE_URL,
                 params=params,
@@ -64,7 +66,7 @@ class TextSummaryProcessor:
         if not news_title:
             return "Brief summary: "
 
-        # Remove source name
+        # Remove news source
         pure_title = news_title.split(" - ")[0]
 
         # Limit summary length
@@ -84,24 +86,42 @@ class ConsolePrinter:
     """
 
     @staticmethod
+    def print_banner():
+
+        print("=" * 70)
+        print("📰 NewsAI - AI Powered Global News Summary")
+        print("=" * 70)
+
+    @staticmethod
     def print_news(articles: List[Dict]):
 
-        print("======== NewsAI | Daily Global Top News ========")
+        print("\n📌 Today's Top Headlines")
+        print("-" * 70)
 
         if not articles:
-            print("No news available")
+            print("❌ No news available.")
             return
 
         for index, article in enumerate(articles, start=1):
-            print(f"{index}. {article['title']}")
+
+            print(f"\n[{index}]")
+
+            print(
+                textwrap.fill(
+                    article["title"],
+                    width=65,
+                    subsequent_indent="    "
+                )
+            )
 
     @staticmethod
     def print_summaries(articles: List[Dict]):
 
-        print("\n======== Auto Generated One-Sentence News Summary ========")
+        print("\n🤖 AI One-Sentence Summaries")
+        print("-" * 70)
 
         if not articles:
-            print("No news available to generate summary")
+            print("❌ No news available to generate summary.")
             return
 
         for index, article in enumerate(articles, start=1):
@@ -110,7 +130,23 @@ class ConsolePrinter:
                 article["title"]
             )
 
-            print(f"{index}. {summary}")
+            print(f"\n{index}. {summary}")
+
+    @staticmethod
+    def print_statistics(articles: List[Dict]):
+
+        print("\n" + "-" * 70)
+        print(f"📊 Total News Retrieved : {len(articles)}")
+        print("🌐 Source               : NewsAPI")
+        print("⚙️ Status               : Success" if articles else "⚠️ No Data")
+        print("-" * 70)
+
+    @staticmethod
+    def print_finish():
+
+        print("=" * 70)
+        print("✅ Program Finished Successfully")
+        print("=" * 70)
 
 
 # ==========================
@@ -128,11 +164,17 @@ class NewsApplication:
 
     def run(self):
 
+        ConsolePrinter.print_banner()
+
         articles = self.news_client.fetch_top_headlines()
 
         ConsolePrinter.print_news(articles)
 
         ConsolePrinter.print_summaries(articles)
+
+        ConsolePrinter.print_statistics(articles)
+
+        ConsolePrinter.print_finish()
 
 
 # ==========================
