@@ -1025,8 +1025,9 @@ Invitation Status:
 Pending Invite
 
 > Insert Collaborator screenshot below.
+> 
+<img width="839" height="496" alt="屏幕截图 2026-08-04 075317" src="https://github.com/user-attachments/assets/f71a8253-2dde-4334-a6bc-82d33e0690b9" />
 
-<img width="..." alt="GitHub Collaborator" src="YOUR_COLLABORATOR_SCREENSHOT"/>
 
 ---
 
